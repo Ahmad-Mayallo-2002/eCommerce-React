@@ -1,13 +1,66 @@
-body {
+* {
+  box-sizing: border-box;
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+}
+nav {
+  height: 64px;
+}
+nav a {
+  text-decoration: none;
+}
+nav a:not(a:last-of-type):hover {
+  color: #000 !important;
+}
+.home {
+  background-image: url(../src/assets/images/home/background.avif);
+  background-size: cover;
+  background-position: center center;
+  height: calc(100vh - 64px);
+}
+.home .content h1 {
+  font-size: 5rem;
+}
+.home .content p {
+  font-size: 3rem;
+}
+.products .products-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+}
+.products .products-container .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.products .products-container .buttons {
+  grid-column: 1 / -1;
+  margin-bottom: calc(3rem - 30px);
+}
+.product-loading {
+  --dimenssions: 50px;
+  width: var(--dimenssions);
+  height: var(--dimenssions);
+  border-radius: 50%;
+  border: 5px solid #000;
+  border-top-color: transparent;
+  animation: rotate .75s infinite linear;
+  position: absolute;
+  top: calc(50% - var(--dimenssions) * .5);
+  left: calc(50% - var(--dimenssions) * .5);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@keyframes rotate {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@media (max-width: 767px) {
+  .home .container article h1,
+  .home .container article p {
+    font-size: 30px;
+    text-align: center;
+  }
 }
